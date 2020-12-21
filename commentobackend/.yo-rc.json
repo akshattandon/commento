@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.test.commento"
+    },
+    "jhipsterVersion": "6.10.4",
+    "applicationType": "microservice",
+    "baseName": "codetestbackend",
+    "packageName": "com.test.commento",
+    "packageFolder": "com/test/commento",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NmI5NjRjZDQyY2NkMTdhNjA3NTMyNWU2ZDM2ZTNiMGU3NzcyNjNlZmI1M2I0NWVjYzI3NzZhMjY2NDc5NmE0NDdiYzcxMzhiNmE0ZDAzYzdjMWRiNWFmOTdmMDFkZGYwOGI0OGJhNjgyYjg1MWJjZGY1MTc3YzBiMGYzZjczZGE=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1608444025737,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
