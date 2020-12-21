@@ -1,17 +1,17 @@
-package com.test.commentservice.web.rest;
+package com.test.commento.web.rest;
 
-import com.test.commentservice.config.Constants;
-import com.test.commentservice.domain.User;
-import com.test.commentservice.repository.UserRepository;
-import com.test.commentservice.security.AuthoritiesConstants;
-import com.test.commentservice.service.MailService;
+import com.test.commento.config.Constants;
+import com.test.commento.domain.User;
+import com.test.commento.repository.UserRepository;
+import com.test.commento.security.AuthoritiesConstants;
+import com.test.commento.service.MailService;
 import org.springframework.data.domain.Sort;
 import java.util.Collections;
-import com.test.commentservice.service.UserService;
-import com.test.commentservice.service.dto.UserDTO;
-import com.test.commentservice.web.rest.errors.BadRequestAlertException;
-import com.test.commentservice.web.rest.errors.EmailAlreadyUsedException;
-import com.test.commentservice.web.rest.errors.LoginAlreadyUsedException;
+import com.test.commento.service.UserService;
+import com.test.commento.service.dto.UserDTO;
+import com.test.commento.web.rest.errors.BadRequestAlertException;
+import com.test.commento.web.rest.errors.EmailAlreadyUsedException;
+import com.test.commento.web.rest.errors.LoginAlreadyUsedException;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;

@@ -51,10 +51,8 @@ export const postRoute: Routes = [
       post: PostResolve,
     },
     data: {
-      authorities: [Authority.USER],
       pageTitle: 'Posts',
     },
-    canActivate: [UserRouteAccessService],
   },
   {
     path: 'new',

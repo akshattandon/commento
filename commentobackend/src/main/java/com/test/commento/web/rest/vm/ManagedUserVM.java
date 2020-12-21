@@ -1,6 +1,6 @@
 package com.test.commento.web.rest.vm;
 
-import com.test.commentservice.service.dto.UserDTO;
+import com.test.commento.service.dto.UserDTO;
 import javax.validation.constraints.Size;
 
 /**

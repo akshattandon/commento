@@ -5,9 +5,9 @@ export interface IComments {
   name?: string;
   email?: string;
   body?: string;
-  costcommentrls?: IPost[];
+  postId?: number;
 }
 
 export class Comments implements IComments {
-  constructor(public id?: number, public name?: string, public email?: string, public body?: string, public costcommentrls?: IPost[]) {}
+  constructor(public id?: number, public name?: string, public email?: string, public body?: string, public postId?: number) {}
 }

@@ -10,6 +10,21 @@
                     <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
                 </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_userId">UserId</label>
+                    <input type="number" class="form-control" name="userId" id="field_userId"
+                           formControlName="userId"/>
+                    <div *ngIf="editForm.get('userId')!.invalid && (editForm.get('userId')!.dirty || editForm.get('userId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('userId')?.errors?.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.get('userId')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label class="form-control-label" for="field_title">Title</label>
@@ -25,25 +40,25 @@
 
                 <div class="form-group">
                     <label class="form-control-label" for="field_body">Body</label>
-                    <input type="text" class="form-control" name="body" id="field_body"
-                           formControlName="body"/>
+<!--                    <input type="text" class="form-control" name="body" id="field_body"-->
+<!--                           formControlName="body"/>-->
+                    <textarea class="form-control"  name="body" id="field_body" cols="80" rows="10" formControlName="body"  required></textarea>
                 </div>
+<!--                <div class="form-group">-->
+<!--                    <label class="form-control-label" jhiTranslate="crmsPortalApp.ticketManagement.Body" for="field_body">Body</label>-->
+<!--                    &lt;!&ndash;  <input type="text" class="form-control" name="body" id="field_body"-->
+<!--                        [(ngModel)]="ticketManagement.Body" required/> &ndash;&gt;-->
+<!--                    <textarea class="form-control"  name="body" id="field_body" cols="80" rows="10"  [(ngModel)]="ticketManagement.Body" required></textarea>-->
+<!--                    <div [hidden]="!(editForm.controls.body?.dirty && editForm.controls.body?.invalid)">-->
+<!--                        <small class="form-text text-danger"-->
+<!--                               [hidden]="!editForm.controls.body?.errors?.required" jhiTranslate="entity.validation.required">-->
+<!--                            This field is required.-->
+<!--                        </small>-->
+<!--                    </div>-->
+<!--                </div>-->
 
-                <div class="form-group">
-                    <label class="form-control-label" for="field_userid">Userid</label>
-                    <input type="number" class="form-control" name="userid" id="field_userid"
-                           formControlName="userid"/>
-                    <div *ngIf="editForm.get('userid')!.invalid && (editForm.get('userid')!.dirty || editForm.get('userid')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('userid')?.errors?.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('userid')?.errors?.number">
-                            This field should be a number.
-                        </small>
-                    </div>
-                </div>
+
+
             </div>
 
             <div>

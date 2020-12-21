@@ -20,7 +20,7 @@ export class PostService {
   }
 
   update(post: IPost): Observable<EntityResponseType> {
-    return this.http.put<IPost>(this.resourceUrl, post, { observe: 'response' });
+    return this.http.put<IPost>(`${this.resourceUrl}/${post.id}`, post, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

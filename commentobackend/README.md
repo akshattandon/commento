@@ -1,57 +1,50 @@
 # codetestbackend
 
-This application was generated using JHipster 6.10.4, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.10.4](https://www.jhipster.tech/documentation-archive/v6.10.4).
+This is a "microservice" application intended to be part of a microservice architecture
 
-This is a "microservice" application intended to be part of a microservice architecture, please refer to the [Doing microservices with JHipster][] page of the documentation for more information.
 
-This application is configured for Service Discovery and Configuration with . On launch, it will refuse to start if it is not able to connect to .
+## PreRequisites
+To Run this microservice you need to have java installed in your system and JAVA_HOME envoirnment variable
 
+ 
 ## Development
-
 To start your application in the dev profile, run:
-
+### In Linux
 ```
 ./gradlew
 ```
+### In Windows
+```
+gradlew.bat
 
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
-
-## Building for production
-
+```
 ### Packaging as jar
 
 To build the final jar and optimize the codetestbackend application for production, run:
 
 ```
-
-
 ./gradlew -Pprod clean bootJar
-
+or 
+gradlew.bat -Pprod clean bootJar
 ```
 
 To ensure everything worked, run:
 
 ```
-
-
 java -jar build/libs/*.jar
-
 ```
 
-Refer to [Using JHipster in production][] for more details.
 
 ### Packaging as war
 
 To package your application as a war in order to deploy it to an application server, run:
 
 ```
-
-
 ./gradlew -Pprod -Pwar clean bootWar
 
 ```
 
-## Testing
+## Testing ( In Progress )
 
 To launch your application's tests, run:
 
@@ -59,10 +52,9 @@ To launch your application's tests, run:
 ./gradlew test integrationTest jacocoTestReport
 ```
 
-For more information, refer to the [Running tests page][].
+Report will be placed at commentobackend\build\reports\jacoco\test\html\index.html 
 
-### Code quality
-
+### Code quality ( In Progress )
 Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
 
 ```
@@ -79,10 +71,12 @@ Then, run a Sonar analysis:
 
 For more information, refer to the [Code quality page][].
 
-## Using Docker to simplify development (optional)
+## Docker ( In Progress )
 
-You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
+### PreRequisites
+Docker installed locally 
 
+### Development 
 For example, to start a mysql database in a docker container, run:
 
 ```
@@ -99,27 +93,15 @@ You can also fully dockerize your application and all the services that it depen
 To achieve this, first build a docker image of your app by running:
 
 ```
-./gradlew bootJar -Pprod jibDockerBuild
+./gradlew bootJar -Pprod 
 ```
-
-Then run:
-
+Then copy codetestbackend*.jar from build/libs folder to src/main/docker/ folder
+Then run from src/main/docker/
+```
+docker build -t codetestbackend . 
+```
+Then run from codetestbackend folder
 ```
 docker-compose -f src/main/docker/app.yml up -d
 ```
-
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
-
-## Continuous Integration (optional)
-
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
-
-[jhipster homepage and latest documentation]: https://www.jhipster.tech
-[jhipster 6.10.4 archive]: https://www.jhipster.tech/documentation-archive/v6.10.4
-[doing microservices with jhipster]: https://www.jhipster.tech/documentation-archive/v6.10.4/microservices-architecture/
-[using jhipster in development]: https://www.jhipster.tech/documentation-archive/v6.10.4/development/
-[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v6.10.4/docker-compose
-[using jhipster in production]: https://www.jhipster.tech/documentation-archive/v6.10.4/production/
-[running tests page]: https://www.jhipster.tech/documentation-archive/v6.10.4/running-tests/
-[code quality page]: https://www.jhipster.tech/documentation-archive/v6.10.4/code-quality/
-[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v6.10.4/setting-up-ci/
+## Continuous Integration (In Progress)

@@ -1,4 +1,4 @@
 /**
  * Spring MVC REST controllers.
  */
-package com.test.commentservice.web.rest;
+package com.test.commento.web.rest;

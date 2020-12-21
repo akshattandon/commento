@@ -1,38 +1,127 @@
 <div class="row justify-content-center">
-    <div class="col-8">
-        <div *ngIf="post">
-            <h2><span>Post</span> {{ post.id }}</h2>
+      <div class="col-8">
 
-            <hr>
+        <jhi-alert-error></jhi-alert-error>
+        <dl class="row-md jh-entity-details">
+            <dt><span >Post Details {{post.id}}</span></dt>
+        </dl>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>
+                                <span >UserId</span>
+                            </th>
+                            <th>
+                                <span >PostID</span>
+                            </th>
+                            <th>
+                                <span >Post Title</span>
+                            </th>
+                            <th>
+                                <span >Post Body</span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{post.userId}}</td>
+                            <td>{{post.id}}</td>
+                            <td>{{post.title}}</td>
+                            <td>{{post.body}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <dl class="row-md jh-entity-details">
+                    <dt><span>Comments</span></dt>
+                </dl>
+                <div class="table-responsive" >
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>
+                                <span>Name</span>
 
-            <jhi-alert-error></jhi-alert-error>
+                            </th>
+                            <th>
+                                <span >email</span>
 
-            <dl class="row-md jh-entity-details">
-                <dt><span>Title</span></dt>
-                <dd>
-                    <span>{{ post.title }}</span>
-                </dd>
-                <dt><span>Body</span></dt>
-                <dd>
-                    <span>{{ post.body }}</span>
-                </dd>
-                <dt><span>Userid</span></dt>
-                <dd>
-                    <span>{{ post.userid }}</span>
-                </dd>
-            </dl>
+                            </th>
+                            <th>
+                                <span >Content</span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let commentobj of comments ">
+                            <td>{{commentobj.name}}}</td>
+                            <td>{{commentobj.email}}</td>
+                            <td>{{commentobj.body}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+              <dl class="row-md jh-entity-details">
+                  <dt><span>Add Comments</span></dt>
+              </dl>
+                <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+                    <div class="form-group">
+                        <label class="form-control-label" for="field_name">Name</label>
+                        <input type="text" class="form-control" name="subject" id="field_name"
+                               [(ngModel)]="comment.name" required/>
+                        <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                            <small class="form-text text-danger"
+                                   [hidden]="!editForm.controls.subject?.errors?.required" >
+                                This field is required.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label"  for="field_email">Email</label>
+                        <input type="text" class="form-control" name="email" id="field_email"
+                               [(ngModel)]="comment.email" required/>
+                        <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+                            <small class="form-text text-danger"
+                                   [hidden]="!editForm.controls.email?.errors?.required" jhiTranslate="entity.validation.required">
+                                This field is required.
+                            </small>
+                        </div>
+                    </div>
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
-            </button>
+                    <div class="form-group">
+                        <label class="form-control-label"  for="field_body">Body</label>
+                        <textarea class="form-control"  name="body" id="field_body" cols="80" rows="10"  [(ngModel)]="comment.body" required></textarea>
+                        <div [hidden]="!(editForm.controls.body?.dirty && editForm.controls.body?.invalid)">
+                            <small class="form-text text-danger"
+                                   [hidden]="!editForm.controls.body?.errors?.required" jhiTranslate="entity.validation.required">
+                                This field is required.
+                            </small>
+                        </div>
+                    </div>
 
-            <button type="button"
-                    [routerLink]="['/post', post.id, 'edit']"
-                    class="btn btn-primary">
-                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
-            </button>
-        </div>
+                    <div class="modal-footer">
+                        <div *ngIf="!isAuthenticated()">
+                        <button type="submit"
+                                (click)="previousState()"
+                                class="btn btn-info">
+                            <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                        </button>
+                        </div>
+                        <div  *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']" >
+                        <button type="button"
+                                [routerLink]="['/post', post.id, 'edit']"
+                                class="btn btn-primary">
+                            <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+                        </button>
+                        </div>
+                        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                        </button>
+
+                    </div>
+                </form>
+
+                </div>
     </div>
-</div>
+

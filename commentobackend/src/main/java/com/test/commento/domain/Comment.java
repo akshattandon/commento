@@ -16,7 +16,6 @@ public class Comment implements Serializable {
     private String name;
 
     @NotNull
-    @Pattern(regexp = "^[A-Z+_.-]+@[A-Z.-]+$")
     private String email;
 
     @NotNull
@@ -80,32 +79,6 @@ public class Comment implements Serializable {
         this.body = body;
     }
 
-    public Set<Post> getPostcommentrls() {
-        return null;
-        //return postcommentrls;
-    }
-
-    public Comment postcommentrls(Set<Post> posts) {
-        //  this.postcommentrls = posts;
-        return this;
-    }
-
-    public Comment addPostcommentrl(Post post) {
-        //   this.postcommentrls.add(post);
-        //     post.setPostid(this);
-        return this;
-    }
-
-    public Comment removePostcommentrl(Post post) {
-        //  this.postcommentrls.remove(post);
-        //   post.setPostid(null);
-        return this;
-    }
-
-    public void setPostcommentrls(Set<Post> posts) {
-        // this.postcommentrls = posts;
-    }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {

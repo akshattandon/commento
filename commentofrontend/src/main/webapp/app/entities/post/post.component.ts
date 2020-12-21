@@ -94,8 +94,8 @@ export class PostComponent implements OnInit, OnDestroy {
   }
 
   protected paginatePosts(data: IPost[] | null, headers: HttpHeaders): void {
-    const headersLink = headers.get('link');
-    this.links = this.parseLinks.parse(headersLink ? headersLink : '');
+    // const headersLink = headers.get('link');
+    // this.links = this.parseLinks.parse(headersLink ? headersLink : '');
     if (data) {
       for (let i = 0; i < data.length; i++) {
         this.posts.push(data[i]);

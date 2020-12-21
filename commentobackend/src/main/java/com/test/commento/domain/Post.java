@@ -14,7 +14,7 @@ public class Post implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer userid;
+    private Long userId;
 
     @NotNull
     private String title;
@@ -40,17 +40,12 @@ public class Post implements Serializable {
         this.id = id;
     }
 
-    public Integer getUserid() {
-        return userid;
+    public Long getUserId() {
+        return userId;
     }
 
-    public Post userid(Integer userid) {
-        this.userid = userid;
-        return this;
-    }
-
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {
@@ -100,7 +95,7 @@ public class Post implements Serializable {
     public String toString() {
         return "Post{" +
                 "id=" + getId() +
-                ", userid=" + getUserid() +
+                ", userid=" + getUserId() +
                 ", title='" + getTitle() + "'" +
                 ", body='" + getBody() + "'" +
                 "}";

@@ -1,6 +1,6 @@
-package com.test.commentservice.web.rest;
+package com.test.commento.web.rest;
 
-import com.test.commentservice.service.AuditEventService;
+import com.test.commento.service.AuditEventService;
 
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;

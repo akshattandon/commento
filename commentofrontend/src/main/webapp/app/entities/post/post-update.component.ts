@@ -19,7 +19,7 @@ export class PostUpdateComponent implements OnInit {
     id: [],
     title: [null, [Validators.required]],
     body: [],
-    userid: [null, [Validators.required]],
+    userId: [null, [Validators.required]],
   });
 
   constructor(protected postService: PostService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -35,7 +35,7 @@ export class PostUpdateComponent implements OnInit {
       id: post.id,
       title: post.title,
       body: post.body,
-      userid: post.userid,
+      userId: post.userId,
     });
   }
 
@@ -59,7 +59,7 @@ export class PostUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       title: this.editForm.get(['title'])!.value,
       body: this.editForm.get(['body'])!.value,
-      userid: this.editForm.get(['userid'])!.value,
+      userId: this.editForm.get(['userId'])!.value,
     };
   }
 
